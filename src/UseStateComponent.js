@@ -4,11 +4,17 @@ const UseStateComponent = () => {
     
     const [tasks, setTasks] = useState([{key:1, task: "eating",}]);
     const [task, setTask] = useState("");
+    
     const handleInput = (e) => {
         e.preventDefault();
         setTasks([...tasks, { key: new Date().getTime().toString(), task}])
         console.log(tasks);
         setTask("")
+    }
+
+    const deleteTask = (key)=> {
+        const newTasks = tasks.filter((oneTask)=>oneTask.key!==key);
+        setTasks(newTasks);
     }
 
     return (
@@ -27,6 +33,7 @@ const UseStateComponent = () => {
                     return (
                         <div key ={oneTask.key}>
                             <h4>{oneTask.task}</h4>
+                            <button onClick={()=>deleteTask(oneTask.key)}>Delete</button>
                         </div>
                     )
                 })

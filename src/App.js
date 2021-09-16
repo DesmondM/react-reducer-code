@@ -1,6 +1,7 @@
 
 import './App.css';
 import Modal from './Modal';
+import ReducerComp from './ReducerComp';
 import ReducerComponent from './ReducerComponent';
 import UseStateComponent from './UseStateComponent';
 
@@ -11,6 +12,7 @@ function App() {
      {/*  <Modal/>
       <ReducerComponent/> */}
       <UseStateComponent/>
+      <ReducerComp/>
     </div>
   );
 }
