@@ -1,4 +1,5 @@
-import React, {useReducer} from 'react'
+import React, {useReducer, useEffect} from 'react'
+import Tester from './Tester'
 
 const reducerFxn =(state, action)=>{
     switch (action.type){
@@ -11,12 +12,29 @@ const reducerFxn =(state, action)=>{
     }
 }
 
+
+
+
+
 const ReducerComp = () => {
     const [state, dispatch]= useReducer(reducerFxn, {count:1, showText:true})
+ /*    
+    useEffect(()=>{
+
+const divisibleByTen =({state.count})=>{
+    if({state.count}%10==0){
+        {<Tester/>}
+    }
+}
+
+},[]) */
+    
+    
     return (
         <div>
             <h1>Counting Reducer</h1>
             <h2>{state.count}</h2>
+            {state.count%10==0 && <p><Tester/></p>}
             <button onClick={()=>{
                 dispatch({type:"Increment"});
                  dispatch({type:"Toggle"});
@@ -27,5 +45,7 @@ const ReducerComp = () => {
         </div>
     )
 }
+
+
 
 export default ReducerComp
